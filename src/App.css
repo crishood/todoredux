@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  display: flex;
+  padding: 32px;
+  gap: 120px;
+}
+
+.form form{
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.list{
+  width: 320px;
 }
 
 .App-logo {
