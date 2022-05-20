@@ -1,6 +1,8 @@
 export const CHANGE_TEXT = "CHANGE_TEXT";
 export const CHANGE_TITLE = "CHANGE_TITLE";
 export const CHANGE_PRIORITY = "CHANGE_PRIORITY";
+export const CHANGE_STATE = "CHANGE_STATE";
+export const Notes = [];
 
 //action creator
 export function changeText(value) {
@@ -26,7 +28,9 @@ export function changePriority(value) {
 const initialState = {
   text: "",
   title: "",
-  priority: false
+  priority: false,
+  stateButton: 0,
+  list: [],
 };
 
 const todoReducer = (state = initialState, action) => {
@@ -46,6 +50,16 @@ const todoReducer = (state = initialState, action) => {
         ...state,
         priority: action.payload,
       };
+
+    case CHANGE_STATE:
+      return (
+        Notes.push(state),
+        {
+          ...initialState,
+          list: Notes,
+        }
+      );
+
     default:
       return state;
   }

@@ -1,17 +1,26 @@
-import { useSelector} from "react-redux";
-import { changeText, changeTitle } from "../store/reducers/Todo.reducer";
+import { useSelector } from "react-redux";
 
 const TodoList = () => {
-    const text = useSelector((state) => state.todoReducer.text);
-    const title = useSelector((state) => state.todoReducer.title);
-
-    return (
-        <div className="list">
-            <ul>
-                <li>Primera tarea</li>
-            </ul>
-        </div>
-    );
-}
+  const { list } = useSelector((state) => state.todoReducer);
+  return (
+    <div className="list">
+      <ul>
+        <li>Primera tarea</li>
+      </ul>
+      {list.map((item) => {
+        console.log(item);
+        return (
+          <div>
+            <h1>{item.title}</h1>
+            <p>{item.text}</p>
+            <small>
+              {item.priority === true ? "Es prioritario" : "No es prioritario"}
+            </small>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default TodoList;
